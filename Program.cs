@@ -13,7 +13,7 @@ namespace NoteIt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NoteIt());
+            Application.Run(new MainForm());
         }
     }
 }

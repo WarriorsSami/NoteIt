@@ -1,0 +1,411 @@
+﻿using System.ComponentModel;
+
+namespace NoteIt
+{
+    partial class MainForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.mainMenu = new System.Windows.Forms.MenuStrip();
+            this.fileSubmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.newMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newWindowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.pageSetupMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editSubmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.findMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findNextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findPreviousMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replaceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gotoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timeDateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatSubmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordWrapMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewSubmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusBarMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpSubmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewHelpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentContentText = new System.Windows.Forms.TextBox();
+            this.documentStatusBar = new System.Windows.Forms.StatusStrip();
+            this.documentStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mainMenu.SuspendLayout();
+            this.documentStatusBar.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // mainMenu
+            // 
+            this.mainMenu.AutoSize = false;
+            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.fileSubmenu, this.editSubmenu, this.formatSubmenu, this.viewSubmenu, this.helpSubmenu });
+            this.mainMenu.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu.Name = "mainMenu";
+            this.mainMenu.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mainMenu.Size = new System.Drawing.Size(1081, 26);
+            this.mainMenu.TabIndex = 0;
+            this.mainMenu.TabStop = true;
+            // 
+            // fileSubmenu
+            // 
+            this.fileSubmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.newMenuItem, this.newWindowMenuItem, this.openMenuItem, this.saveMenuItem, this.saveAsMenuItem, this.toolStripSeparator1, this.pageSetupMenuItem, this.toolStripSeparator2, this.exitMenuItem });
+            this.fileSubmenu.Name = "fileSubmenu";
+            this.fileSubmenu.Size = new System.Drawing.Size(44, 22);
+            this.fileSubmenu.Text = "&File";
+            // 
+            // newMenuItem
+            // 
+            this.newMenuItem.Name = "newMenuItem";
+            this.newMenuItem.Size = new System.Drawing.Size(167, 24);
+            this.newMenuItem.Text = "&New";
+            // 
+            // newWindowMenuItem
+            // 
+            this.newWindowMenuItem.Name = "newWindowMenuItem";
+            this.newWindowMenuItem.Size = new System.Drawing.Size(167, 24);
+            this.newWindowMenuItem.Text = "New &Window";
+            // 
+            // openMenuItem
+            // 
+            this.openMenuItem.Name = "openMenuItem";
+            this.openMenuItem.Size = new System.Drawing.Size(167, 24);
+            this.openMenuItem.Text = "&Open...";
+            // 
+            // saveMenuItem
+            // 
+            this.saveMenuItem.Name = "saveMenuItem";
+            this.saveMenuItem.Size = new System.Drawing.Size(167, 24);
+            this.saveMenuItem.Text = "&Save";
+            // 
+            // saveAsMenuItem
+            // 
+            this.saveAsMenuItem.Name = "saveAsMenuItem";
+            this.saveAsMenuItem.Size = new System.Drawing.Size(167, 24);
+            this.saveAsMenuItem.Text = "Save &As...";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(164, 6);
+            // 
+            // pageSetupMenuItem
+            // 
+            this.pageSetupMenuItem.Name = "pageSetupMenuItem";
+            this.pageSetupMenuItem.Size = new System.Drawing.Size(167, 24);
+            this.pageSetupMenuItem.Text = "Page Set&up...";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(164, 6);
+            // 
+            // exitMenuItem
+            // 
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(167, 24);
+            this.exitMenuItem.Text = "&Exit";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
+            // 
+            // editSubmenu
+            // 
+            this.editSubmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.undoMenuItem, this.toolStripSeparator3, this.cutMenuItem, this.copyMenuItem, this.pasteMenuItem, this.deleteMenuItem, this.toolStripSeparator4, this.findMenuItem, this.findNextMenuItem, this.findPreviousMenuItem, this.replaceMenuItem, this.gotoMenuItem, this.toolStripSeparator5, this.selectAllMenuItem, this.timeDateMenuItem });
+            this.editSubmenu.Name = "editSubmenu";
+            this.editSubmenu.Size = new System.Drawing.Size(47, 22);
+            this.editSubmenu.Text = "&Edit";
+            // 
+            // undoMenuItem
+            // 
+            this.undoMenuItem.Name = "undoMenuItem";
+            this.undoMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.undoMenuItem.Text = "&Undo";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(162, 6);
+            // 
+            // cutMenuItem
+            // 
+            this.cutMenuItem.Name = "cutMenuItem";
+            this.cutMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.cutMenuItem.Text = "Cu&t";
+            // 
+            // copyMenuItem
+            // 
+            this.copyMenuItem.Name = "copyMenuItem";
+            this.copyMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.copyMenuItem.Text = "&Copy";
+            // 
+            // pasteMenuItem
+            // 
+            this.pasteMenuItem.Name = "pasteMenuItem";
+            this.pasteMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.pasteMenuItem.Text = "&Paste";
+            // 
+            // deleteMenuItem
+            // 
+            this.deleteMenuItem.Name = "deleteMenuItem";
+            this.deleteMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.deleteMenuItem.Text = "De&lete";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(162, 6);
+            // 
+            // findMenuItem
+            // 
+            this.findMenuItem.Name = "findMenuItem";
+            this.findMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.findMenuItem.Text = "&Find...";
+            // 
+            // findNextMenuItem
+            // 
+            this.findNextMenuItem.Name = "findNextMenuItem";
+            this.findNextMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.findNextMenuItem.Text = "Find &Next";
+            // 
+            // findPreviousMenuItem
+            // 
+            this.findPreviousMenuItem.Name = "findPreviousMenuItem";
+            this.findPreviousMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.findPreviousMenuItem.Text = "Fi&nd Previous";
+            // 
+            // replaceMenuItem
+            // 
+            this.replaceMenuItem.Name = "replaceMenuItem";
+            this.replaceMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.replaceMenuItem.Text = "&Replace...";
+            // 
+            // gotoMenuItem
+            // 
+            this.gotoMenuItem.Name = "gotoMenuItem";
+            this.gotoMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.gotoMenuItem.Text = "&Go To...";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(162, 6);
+            // 
+            // selectAllMenuItem
+            // 
+            this.selectAllMenuItem.Name = "selectAllMenuItem";
+            this.selectAllMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.selectAllMenuItem.Text = "Select &All";
+            // 
+            // timeDateMenuItem
+            // 
+            this.timeDateMenuItem.Name = "timeDateMenuItem";
+            this.timeDateMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.timeDateMenuItem.Text = "Time/&Date";
+            // 
+            // formatSubmenu
+            // 
+            this.formatSubmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.wordWrapMenuItem, this.fontMenuItem });
+            this.formatSubmenu.Name = "formatSubmenu";
+            this.formatSubmenu.Size = new System.Drawing.Size(68, 22);
+            this.formatSubmenu.Text = "F&ormat";
+            // 
+            // wordWrapMenuItem
+            // 
+            this.wordWrapMenuItem.Name = "wordWrapMenuItem";
+            this.wordWrapMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.wordWrapMenuItem.Text = "&Word Wrap";
+            // 
+            // fontMenuItem
+            // 
+            this.fontMenuItem.Name = "fontMenuItem";
+            this.fontMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.fontMenuItem.Text = "&Font...";
+            // 
+            // viewSubmenu
+            // 
+            this.viewSubmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.statusBarMenuItem });
+            this.viewSubmenu.Name = "viewSubmenu";
+            this.viewSubmenu.Size = new System.Drawing.Size(53, 22);
+            this.viewSubmenu.Text = "&View";
+            // 
+            // statusBarMenuItem
+            // 
+            this.statusBarMenuItem.Name = "statusBarMenuItem";
+            this.statusBarMenuItem.Size = new System.Drawing.Size(144, 24);
+            this.statusBarMenuItem.Text = "&Status Bar";
+            // 
+            // helpSubmenu
+            // 
+            this.helpSubmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.viewHelpMenuItem, this.aboutMenuItem });
+            this.helpSubmenu.Name = "helpSubmenu";
+            this.helpSubmenu.Size = new System.Drawing.Size(53, 22);
+            this.helpSubmenu.Text = "&Help";
+            // 
+            // viewHelpMenuItem
+            // 
+            this.viewHelpMenuItem.Name = "viewHelpMenuItem";
+            this.viewHelpMenuItem.Size = new System.Drawing.Size(146, 24);
+            this.viewHelpMenuItem.Text = "View &Help";
+            // 
+            // aboutMenuItem
+            // 
+            this.aboutMenuItem.Name = "aboutMenuItem";
+            this.aboutMenuItem.Size = new System.Drawing.Size(146, 24);
+            this.aboutMenuItem.Text = "&About";
+            // 
+            // documentContentText
+            // 
+            this.documentContentText.AcceptsReturn = true;
+            this.documentContentText.AcceptsTab = true;
+            this.documentContentText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.documentContentText.HideSelection = false;
+            this.documentContentText.Location = new System.Drawing.Point(0, 26);
+            this.documentContentText.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.documentContentText.MaxLength = 0;
+            this.documentContentText.Multiline = true;
+            this.documentContentText.Name = "documentContentText";
+            this.documentContentText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.documentContentText.Size = new System.Drawing.Size(1081, 651);
+            this.documentContentText.TabIndex = 1;
+            this.documentContentText.WordWrap = false;
+            // 
+            // documentStatusBar
+            // 
+            this.documentStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.documentStatusLabel });
+            this.documentStatusBar.Location = new System.Drawing.Point(0, 652);
+            this.documentStatusBar.Name = "documentStatusBar";
+            this.documentStatusBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.documentStatusBar.Size = new System.Drawing.Size(1081, 25);
+            this.documentStatusBar.SizingGrip = false;
+            this.documentStatusBar.TabIndex = 2;
+            // 
+            // documentStatusLabel
+            // 
+            this.documentStatusLabel.Name = "documentStatusLabel";
+            this.documentStatusLabel.Size = new System.Drawing.Size(267, 20);
+            this.documentStatusLabel.Text = "Ln {LineNumber}, Col {ColumnNumber}";
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1081, 677);
+            this.Controls.Add(this.documentStatusBar);
+            this.Controls.Add(this.documentContentText);
+            this.Controls.Add(this.mainMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(15, 15);
+            this.Name = "MainForm";
+            this.mainMenu.ResumeLayout(false);
+            this.mainMenu.PerformLayout();
+            this.documentStatusBar.ResumeLayout(false);
+            this.documentStatusBar.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        }
+
+        private System.Windows.Forms.ToolStripStatusLabel documentStatusLabel;
+
+        private System.Windows.Forms.StatusStrip documentStatusBar;
+
+        private System.Windows.Forms.TextBox documentContentText;
+
+        private System.Windows.Forms.ToolStripMenuItem viewHelpMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem wordWrapMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fontMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statusBarMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem selectAllMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem timeDateMenuItem;
+
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+
+        private System.Windows.Forms.ToolStripMenuItem gotoMenuItem;
+
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem findMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findNextMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findPreviousMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem replaceMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem deleteMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem copyMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteMenuItem;
+
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem cutMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem undoMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
+
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+
+        private System.Windows.Forms.ToolStripMenuItem pageSetupMenuItem;
+
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+
+        private System.Windows.Forms.ToolStripMenuItem saveAsMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem saveMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem openMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem newWindowMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem newMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem helpSubmenu;
+
+        private System.Windows.Forms.ToolStripMenuItem editSubmenu;
+        private System.Windows.Forms.ToolStripMenuItem formatSubmenu;
+        private System.Windows.Forms.ToolStripMenuItem viewSubmenu;
+
+        private System.Windows.Forms.ToolStripMenuItem fileSubmenu;
+
+        private System.Windows.Forms.MenuStrip mainMenu;
+
+        #endregion
+    }
+}
