@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 using Core;
@@ -7,6 +8,26 @@ namespace NoteIt
 {
     public partial class MainForm : Form
     {
+        private (int line, int column) CaretPosition
+        {
+            get
+            {
+                var selectionStart = documentContentTextBox.SelectionStart;
+                var line = documentContentTextBox.GetLineFromCharIndex(selectionStart);
+                var column =
+                    selectionStart - documentContentTextBox.GetFirstCharIndexFromLine(line);
+
+                return (line, column);
+            }
+            set
+            {
+                var selectionStart =
+                    documentContentTextBox.GetFirstCharIndexFromLine(value.line) + value.column;
+                documentContentTextBox.Select(selectionStart, 0);
+                documentContentTextBox.ScrollToCaret();
+            }
+        }
+
         private bool _isDirty;
 
         private bool IsDirty
@@ -47,6 +68,24 @@ namespace NoteIt
             set => documentContentTextBox.Text = value;
         }
 
+        private PageSettings _pageSettings;
+
+        private PageSettings PageSettings
+        {
+            get
+            {
+                if (_pageSettings != null)
+                {
+                    return _pageSettings;
+                }
+
+                _pageSettings = new PageSettings { Margins = new Margins(75, 75, 100, 100) };
+
+                return _pageSettings;
+            }
+            set => _pageSettings = value;
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -68,6 +107,19 @@ namespace NoteIt
             base.Text = (Tag as string).FormatUsingObject(new { DocumentName });
         }
 
+        private void UpdateStatusBar()
+        {
+            if (documentStatusLabel.Tag == null)
+            {
+                documentStatusLabel.Tag = documentStatusLabel.Text;
+            }
+
+            var (line, column) = CaretPosition;
+            documentStatusLabel.Text = (documentStatusLabel.Tag as string).FormatUsingObject(
+                new { LineNumber = line + 1, ColumnNumber = column + 1 }
+            );
+        }
+
         private void EnsureFileSaved()
         {
             if (!IsDirty)
@@ -87,7 +139,7 @@ namespace NoteIt
                     break;
                 case DialogResult.No:
                 case DialogResult.Cancel:
-                    break; 
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -108,27 +160,30 @@ namespace NoteIt
             DocumentContent = File.ReadAllText(Filename);
             IsDirty = false;
         }
-        
+
         private void SaveFile()
         {
-            if (Filename == null)
+            if (Filename == null || new FileInfo(Filename).IsReadOnly)
             {
-                var saveFileDialog = new SaveFileDialog
-                {
-                    Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
-                    FilterIndex = 1
-                };
-
-                if (saveFileDialog.ShowDialog() != DialogResult.OK)
-                    return;
-
-                Filename = saveFileDialog.FileName;
+                SaveAsFile();
+                return;
             }
+
+            var saveFileDialog = new SaveFileDialog
+            {
+                Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+                FilterIndex = 1
+            };
+
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            Filename = saveFileDialog.FileName;
 
             File.WriteAllText(Filename, DocumentContent);
             IsDirty = false;
         }
-        
+
         private void SaveAsFile()
         {
             var saveFileDialog = new SaveFileDialog
@@ -148,6 +203,7 @@ namespace NoteIt
         private void MainForm_Load(object sender, EventArgs e)
         {
             UpdateTitle();
+            UpdateStatusBar();
         }
 
         private void newMenuItem_Click(object sender, EventArgs e)
@@ -159,6 +215,7 @@ namespace NoteIt
 
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
+            EnsureFileSaved();
             Close();
         }
 
@@ -186,6 +243,32 @@ namespace NoteIt
         private void saveAsMenuItem_Click(object sender, EventArgs e)
         {
             SaveAsFile();
+        }
+
+        private void pageSetupMenuItem_Click(object sender, EventArgs e)
+        {
+            var pageSetupDialog = new PageSetupDialog();
+            pageSetupDialog.PageSettings = PageSettings;
+
+            if (pageSetupDialog.ShowDialog() == DialogResult.OK)
+            {
+                PageSettings = pageSetupDialog.PageSettings;
+            }
+        }
+
+        private void documentContentTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            UpdateStatusBar();
+        }
+
+        private void documentContentTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UpdateStatusBar();
+        }
+
+        private void documentContentTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            UpdateStatusBar();
         }
     }
 }

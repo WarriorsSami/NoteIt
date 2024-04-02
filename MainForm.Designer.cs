@@ -142,6 +142,7 @@ namespace NoteIt
             this.pageSetupMenuItem.Name = "pageSetupMenuItem";
             this.pageSetupMenuItem.Size = new System.Drawing.Size(260, 24);
             this.pageSetupMenuItem.Text = "Page Set&up...";
+            this.pageSetupMenuItem.Click += new System.EventHandler(this.pageSetupMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -328,6 +329,9 @@ namespace NoteIt
             this.documentContentTextBox.TabIndex = 1;
             this.documentContentTextBox.WordWrap = false;
             this.documentContentTextBox.TextChanged += new System.EventHandler(this.documentContentTextBox_TextChanged);
+            this.documentContentTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.documentContentTextBox_KeyDown);
+            this.documentContentTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.documentContentTextBox_KeyPress);
+            this.documentContentTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.documentContentTextBox_KeyUp);
             // 
             // documentStatusBar
             // 
