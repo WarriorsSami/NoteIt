@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
@@ -66,6 +68,12 @@ namespace NoteIt
         {
             get => documentContentTextBox.Text;
             set => documentContentTextBox.Text = value;
+        }
+        
+        private Font DocumentFont
+        {
+            get => documentContentTextBox.Font;
+            set => documentContentTextBox.Font = value;
         }
 
         private PageSettings _pageSettings;
@@ -204,6 +212,10 @@ namespace NoteIt
         {
             UpdateTitle();
             UpdateStatusBar();
+            DocumentFont = new Font("Arial", 12);
+            documentContentTextBox.WordWrap = wordWrapMenuItem.Checked = false;
+            documentStatusBar.Visible = statusBarMenuItem.Checked = true;
+            documentContentTextBox.BringToFront();
         }
 
         private void newMenuItem_Click(object sender, EventArgs e)
@@ -269,6 +281,48 @@ namespace NoteIt
         private void documentContentTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             UpdateStatusBar();
+        }
+
+        private void aboutMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutForm().ShowDialog();
+        }
+
+        private void viewHelpMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(
+                "https://www.google.com/search?q=get+help+for+notepad&rlz=1C1AVUC_enRO1015RO1015&oq=get+help+for+notepad&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yBggCEEUYQDIGCAMQRRg80gEIMzAzNWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
+            );
+        }
+
+        private void fontMenuItem_Click(object sender, EventArgs e)
+        {
+            var fontDialog = new FontDialog { Font = DocumentFont };
+
+            if (fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                DocumentFont = fontDialog.Font;
+            }
+        }
+
+        private void wordWrapMenuItem_Click(object sender, EventArgs e)
+        {
+            documentContentTextBox.WordWrap = wordWrapMenuItem.Checked = !wordWrapMenuItem.Checked;
+        }
+
+        private void documentContentTextBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            UpdateStatusBar();
+        }
+
+        private void statusBarMenuItem_Click(object sender, EventArgs e)
+        {
+            documentStatusBar.Visible = statusBarMenuItem.Checked = !statusBarMenuItem.Checked;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            EnsureFileSaved();
         }
     }
 }

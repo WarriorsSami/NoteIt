@@ -274,12 +274,14 @@ namespace NoteIt
             this.wordWrapMenuItem.Name = "wordWrapMenuItem";
             this.wordWrapMenuItem.Size = new System.Drawing.Size(154, 24);
             this.wordWrapMenuItem.Text = "&Word Wrap";
+            this.wordWrapMenuItem.Click += new System.EventHandler(this.wordWrapMenuItem_Click);
             // 
             // fontMenuItem
             // 
             this.fontMenuItem.Name = "fontMenuItem";
             this.fontMenuItem.Size = new System.Drawing.Size(154, 24);
             this.fontMenuItem.Text = "&Font...";
+            this.fontMenuItem.Click += new System.EventHandler(this.fontMenuItem_Click);
             // 
             // viewSubmenu
             // 
@@ -293,6 +295,7 @@ namespace NoteIt
             this.statusBarMenuItem.Name = "statusBarMenuItem";
             this.statusBarMenuItem.Size = new System.Drawing.Size(144, 24);
             this.statusBarMenuItem.Text = "&Status Bar";
+            this.statusBarMenuItem.Click += new System.EventHandler(this.statusBarMenuItem_Click);
             // 
             // helpSubmenu
             // 
@@ -306,12 +309,14 @@ namespace NoteIt
             this.viewHelpMenuItem.Name = "viewHelpMenuItem";
             this.viewHelpMenuItem.Size = new System.Drawing.Size(146, 24);
             this.viewHelpMenuItem.Text = "View &Help";
+            this.viewHelpMenuItem.Click += new System.EventHandler(this.viewHelpMenuItem_Click);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
             this.aboutMenuItem.Size = new System.Drawing.Size(146, 24);
             this.aboutMenuItem.Text = "&About";
+            this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
             // documentContentTextBox
             // 
@@ -332,6 +337,7 @@ namespace NoteIt
             this.documentContentTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.documentContentTextBox_KeyDown);
             this.documentContentTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.documentContentTextBox_KeyPress);
             this.documentContentTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.documentContentTextBox_KeyUp);
+            this.documentContentTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.documentContentTextBox_MouseDown);
             // 
             // documentStatusBar
             // 
@@ -362,6 +368,7 @@ namespace NoteIt
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "MainForm";
             this.Text = "{DocumentName} - NoteIt";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
