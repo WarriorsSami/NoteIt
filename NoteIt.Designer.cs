@@ -1,11 +1,13 @@
-﻿namespace NoteIt
+﻿using System.ComponentModel;
+
+namespace NoteIt
 {
-    partial class Form1
+    partial class NoteIt
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -31,13 +33,13 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // NoteIt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "NoteIt";
+            this.Text = "NoteIt";
             this.ResumeLayout(false);
         }
 

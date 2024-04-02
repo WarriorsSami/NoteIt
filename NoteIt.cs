@@ -2,9 +2,9 @@
 
 namespace NoteIt
 {
-    public partial class Form1 : Form
+    public partial class NoteIt : Form
     {
-        public Form1()
+        public NoteIt()
         {
             InitializeComponent();
         }

@@ -1,3 +1,3 @@
 ﻿## NoteIt
 
-Notepad clone developed using .NET Framework Winforms.
+Notepad clone developed using .NET Framework Windows Forms.
