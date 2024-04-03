@@ -62,6 +62,7 @@ namespace NoteIt
             this.findNextButton.TabIndex = 9;
             this.findNextButton.Text = "Find Next";
             this.findNextButton.UseVisualStyleBackColor = true;
+            this.findNextButton.Click += new System.EventHandler(this.findNextButton_Click);
             // 
             // findWhatTextBox
             // 
@@ -110,6 +111,7 @@ namespace NoteIt
             this.replaceButton.TabIndex = 16;
             this.replaceButton.Text = "Replace";
             this.replaceButton.UseVisualStyleBackColor = true;
+            this.replaceButton.Click += new System.EventHandler(this.replaceButton_Click);
             // 
             // replaceAllButton
             // 
@@ -119,6 +121,7 @@ namespace NoteIt
             this.replaceAllButton.TabIndex = 17;
             this.replaceAllButton.Text = "Replace All";
             this.replaceAllButton.UseVisualStyleBackColor = true;
+            this.replaceAllButton.Click += new System.EventHandler(this.replaceAllButton_Click);
             // 
             // ReplaceForm
             // 
@@ -140,6 +143,7 @@ namespace NoteIt
             this.Name = "ReplaceForm";
             this.Text = "Replace";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReplaceForm_FormClosing);
+            this.Load += new System.EventHandler(this.ReplaceForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

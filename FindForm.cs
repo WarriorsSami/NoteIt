@@ -5,12 +5,12 @@ namespace NoteIt
 {
     public partial class FindForm : Form
     {
-        private MainForm _MainForm;
+        private readonly MainForm _mainForm;
         
         public FindForm(MainForm mainForm)
         {
             InitializeComponent();
-            _MainForm = mainForm;
+            _mainForm = mainForm;
         }
 
         private void FindForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -30,7 +30,7 @@ namespace NoteIt
             var matchCase = matchCaseCheckBox.Checked;
             var bSearchDown = downRadioButton.Checked;
 
-            if (!_MainForm.FindAndSelect(searchText, matchCase, bSearchDown))
+            if (!_mainForm.FindAndSelect(searchText, matchCase, bSearchDown))
             {
                 MessageBox.Show(this, @"Cannot find the text you are looking for.", @"NoteIt");
             }
@@ -39,7 +39,7 @@ namespace NoteIt
         private void FindForm_Load(object sender, EventArgs e)
         {
             downRadioButton.Checked = true;
-            findWhatTextBox.Text = _MainForm.SelectedText;
+            findWhatTextBox.Text = _mainForm.SelectedText;
             findWhatTextBox.SelectAll();
         }
     }

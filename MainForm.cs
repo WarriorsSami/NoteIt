@@ -269,7 +269,7 @@ namespace NoteIt
             var content = DocumentContent;
             var eStringComparison = matchCase ? StringComparison.CurrentCulture : StringComparison.CurrentCultureIgnoreCase;
             var index = bSearchDown
-                ? content.IndexOf(searchText, SelectionEnd, eStringComparison)
+                ? content.IndexOf(searchText, SelectionStart - 1, eStringComparison)
                 : content.LastIndexOf(searchText, SelectionStart - 1, SelectionStart, eStringComparison);
 
             if (index == -1)
@@ -279,6 +279,20 @@ namespace NoteIt
 
             SelectionStart = index;
             SelectionLength = searchText.Length;
+            return true;
+        }
+        
+        public bool ReplaceAll(string searchText, string replaceText, bool matchCase)
+        {
+            var content = DocumentContent;
+            var eStringComparison = matchCase ? StringComparison.CurrentCulture : StringComparison.CurrentCultureIgnoreCase;
+           
+            if (!content.Contains(searchText))
+            {
+                return false;
+            }
+            
+            DocumentContent = content.Replace(searchText, replaceText);
             return true;
         }
 
