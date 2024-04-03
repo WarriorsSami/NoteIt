@@ -30,6 +30,28 @@ namespace NoteIt
             }
         }
 
+        private int LineIndex
+        {
+            get => CaretPosition.line;
+            set
+            {
+                var destLineIndex = value;
+                
+                if (destLineIndex < 0)
+                {
+                    destLineIndex = 0;
+                }
+                
+                if (destLineIndex >= documentContentTextBox.Lines.Length)
+                {
+                    destLineIndex = documentContentTextBox.Lines.Length - 1;
+                }
+                
+                var charIndex = documentContentTextBox.GetFirstCharIndexFromLine(destLineIndex);
+                SelectionStart = charIndex;
+            }
+        }
+
         private bool _isDirty;
 
         private bool IsDirty
@@ -63,6 +85,34 @@ namespace NoteIt
         }
 
         private string DocumentName => Filename == null ? "Untitled" : Path.GetFileName(Filename);
+
+        private string SelectedText
+        {
+            get => documentContentTextBox.SelectedText;
+            set
+            {
+                documentContentTextBox.SelectedText = value;
+                IsDirty = true;
+            }
+        }
+
+        private int SelectionLength
+        {
+            get => documentContentTextBox.SelectionLength;
+            set => documentContentTextBox.SelectionLength = value;
+        }
+
+        private int SelectionStart
+        {
+            get => documentContentTextBox.SelectionStart;
+            set
+            {
+                documentContentTextBox.SelectionStart = value;
+                documentContentTextBox.ScrollToCaret();
+            }
+        }
+        
+        private int SelectionEnd => SelectionStart + SelectionLength;
 
         private string DocumentContent
         {
@@ -183,7 +233,7 @@ namespace NoteIt
                     return;
 
                 Filename = saveFileDialog.FileName;
-            } 
+            }
             else if (new FileInfo(Filename).IsReadOnly)
             {
                 SaveAsFile();
@@ -330,6 +380,53 @@ namespace NoteIt
         private void undoMenuItem_Click(object sender, EventArgs e)
         {
             documentContentTextBox.Undo();
+        }
+
+        private void cutMenuItem_Click(object sender, EventArgs e)
+        {
+            documentContentTextBox.Cut();
+        }
+
+        private void copyMenuItem_Click(object sender, EventArgs e)
+        {
+            documentContentTextBox.Copy();
+        }
+
+        private void pasteMenuItem_Click(object sender, EventArgs e)
+        {
+            documentContentTextBox.Paste();
+        }
+
+        private void deleteMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SelectionLength == 0)
+            {
+                SelectionLength = 1;
+            }
+
+            documentContentTextBox.SelectedText = string.Empty;
+        }
+
+        private void selectAllMenuItem_Click(object sender, EventArgs e)
+        {
+            documentContentTextBox.SelectAll();
+        }
+
+        private void timeDateMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectedText = $"{DateTime.Now.ToShortTimeString()} {DateTime.Now.ToShortDateString()}";
+        }
+
+        private void gotoMenuItem_Click(object sender, EventArgs e)
+        {
+            var gotoForm = new GoToLineForm(LineIndex + 1, documentContentTextBox.Lines.Length);
+            gotoForm.Left = Left + 10;
+            gotoForm.Top = Top + 50;
+
+            if (gotoForm.ShowDialog() != DialogResult.OK)
+                return;
+            
+            LineIndex = gotoForm.LineNumber - 1;
         }
     }
 }

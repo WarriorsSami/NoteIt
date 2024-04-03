@@ -182,6 +182,7 @@ namespace NoteIt
             this.cutMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.cutMenuItem.Size = new System.Drawing.Size(229, 24);
             this.cutMenuItem.Text = "Cu&t";
+            this.cutMenuItem.Click += new System.EventHandler(this.cutMenuItem_Click);
             // 
             // copyMenuItem
             // 
@@ -189,6 +190,7 @@ namespace NoteIt
             this.copyMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.copyMenuItem.Size = new System.Drawing.Size(229, 24);
             this.copyMenuItem.Text = "&Copy";
+            this.copyMenuItem.Click += new System.EventHandler(this.copyMenuItem_Click);
             // 
             // pasteMenuItem
             // 
@@ -196,6 +198,7 @@ namespace NoteIt
             this.pasteMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.pasteMenuItem.Size = new System.Drawing.Size(229, 24);
             this.pasteMenuItem.Text = "&Paste";
+            this.pasteMenuItem.Click += new System.EventHandler(this.pasteMenuItem_Click);
             // 
             // deleteMenuItem
             // 
@@ -203,6 +206,7 @@ namespace NoteIt
             this.deleteMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.deleteMenuItem.Size = new System.Drawing.Size(229, 24);
             this.deleteMenuItem.Text = "De&lete";
+            this.deleteMenuItem.Click += new System.EventHandler(this.deleteMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -243,6 +247,7 @@ namespace NoteIt
             this.gotoMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.gotoMenuItem.Size = new System.Drawing.Size(229, 24);
             this.gotoMenuItem.Text = "&Go To...";
+            this.gotoMenuItem.Click += new System.EventHandler(this.gotoMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -255,6 +260,7 @@ namespace NoteIt
             this.selectAllMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.selectAllMenuItem.Size = new System.Drawing.Size(229, 24);
             this.selectAllMenuItem.Text = "Select &All";
+            this.selectAllMenuItem.Click += new System.EventHandler(this.selectAllMenuItem_Click);
             // 
             // timeDateMenuItem
             // 
@@ -262,6 +268,7 @@ namespace NoteIt
             this.timeDateMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.timeDateMenuItem.Size = new System.Drawing.Size(229, 24);
             this.timeDateMenuItem.Text = "Time/&Date";
+            this.timeDateMenuItem.Click += new System.EventHandler(this.timeDateMenuItem_Click);
             // 
             // formatSubmenu
             // 
