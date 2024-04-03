@@ -10,6 +10,9 @@ namespace NoteIt
 {
     public partial class MainForm : Form
     {
+        private FindForm _findForm;
+        private ReplaceForm _replaceForm;
+        
         private (int line, int column) CaretPosition
         {
             get
@@ -49,6 +52,7 @@ namespace NoteIt
                 
                 var charIndex = documentContentTextBox.GetFirstCharIndexFromLine(destLineIndex);
                 SelectionStart = charIndex;
+                CaretPosition = (destLineIndex, 0);
             }
         }
 
@@ -86,7 +90,7 @@ namespace NoteIt
 
         private string DocumentName => Filename == null ? "Untitled" : Path.GetFileName(Filename);
 
-        private string SelectedText
+        public string SelectedText
         {
             get => documentContentTextBox.SelectedText;
             set
@@ -259,6 +263,24 @@ namespace NoteIt
             File.WriteAllText(Filename, DocumentContent);
             IsDirty = false;
         }
+        
+        public bool FindAndSelect(string searchText, bool matchCase, bool bSearchDown)
+        {
+            var content = DocumentContent;
+            var eStringComparison = matchCase ? StringComparison.CurrentCulture : StringComparison.CurrentCultureIgnoreCase;
+            var index = bSearchDown
+                ? content.IndexOf(searchText, SelectionEnd, eStringComparison)
+                : content.LastIndexOf(searchText, SelectionStart - 1, SelectionStart, eStringComparison);
+
+            if (index == -1)
+            {
+                return false;
+            }
+
+            SelectionStart = index;
+            SelectionLength = searchText.Length;
+            return true;
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -427,6 +449,32 @@ namespace NoteIt
                 return;
             
             LineIndex = gotoForm.LineNumber - 1;
+        }
+
+        private void findMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_findForm == null)
+            {
+                _findForm = new FindForm(this);
+            }
+
+            _findForm.Left = Left + 10;
+            _findForm.Top = Top + 50;
+
+            _findForm.Show();
+        }
+
+        private void replaceMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_replaceForm == null)
+            {
+                _replaceForm = new ReplaceForm(this);
+            }
+
+            _replaceForm.Left = Left + 10;
+            _replaceForm.Top = Top + 50;
+            
+            _replaceForm.Show();
         }
     }
 }
