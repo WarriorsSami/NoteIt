@@ -169,6 +169,7 @@ namespace NoteIt
             this.undoMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.undoMenuItem.Size = new System.Drawing.Size(229, 24);
             this.undoMenuItem.Text = "&Undo";
+            this.undoMenuItem.Click += new System.EventHandler(this.undoMenuItem_Click);
             // 
             // toolStripSeparator3
             // 

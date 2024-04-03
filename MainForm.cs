@@ -69,7 +69,7 @@ namespace NoteIt
             get => documentContentTextBox.Text;
             set => documentContentTextBox.Text = value;
         }
-        
+
         private Font DocumentFont
         {
             get => documentContentTextBox.Font;
@@ -171,22 +171,24 @@ namespace NoteIt
 
         private void SaveFile()
         {
-            if (Filename == null || new FileInfo(Filename).IsReadOnly)
+            if (Filename == null)
+            {
+                var saveFileDialog = new SaveFileDialog
+                {
+                    Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+                    FilterIndex = 1
+                };
+
+                if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                Filename = saveFileDialog.FileName;
+            } 
+            else if (new FileInfo(Filename).IsReadOnly)
             {
                 SaveAsFile();
                 return;
             }
-
-            var saveFileDialog = new SaveFileDialog
-            {
-                Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
-                FilterIndex = 1
-            };
-
-            if (saveFileDialog.ShowDialog() != DialogResult.OK)
-                return;
-
-            Filename = saveFileDialog.FileName;
 
             File.WriteAllText(Filename, DocumentContent);
             IsDirty = false;
@@ -323,6 +325,11 @@ namespace NoteIt
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             EnsureFileSaved();
+        }
+
+        private void undoMenuItem_Click(object sender, EventArgs e)
+        {
+            documentContentTextBox.Undo();
         }
     }
 }
